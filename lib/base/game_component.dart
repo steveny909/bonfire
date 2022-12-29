@@ -45,7 +45,8 @@ abstract class GameComponent extends PositionComponent
     }
     return bottom.round();
   }
-
+  
+  @mustCallSuper
   @override
   void update(double dt) {
     super.update(dt);
@@ -114,6 +115,7 @@ abstract class GameComponent extends PositionComponent
     return hasGameRef ? gameRef.isVisibleInCamera(this) : false;
   }
 
+  @mustCallSuper
   @override
   void onRemove() {
     (gameRef as BonfireGame).removeVisible(this);
